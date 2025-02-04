@@ -1,0 +1,7 @@
+/data
+/data/ham
+/data/spam
+/data/ham/*
+/data/spam/*
+/venv/
+/venv/*
