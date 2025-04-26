@@ -1,0 +1,127 @@
+\documentclass[twoside]{article}
+\setlength{\oddsidemargin}{0.2 in}
+\setlength{\evensidemargin}{0.2in}
+\setlength{\topmargin}{-0.8 in}
+\setlength{\textwidth}{6.5 in}
+\setlength{\textheight}{8.5 in}
+\setlength{\headsep}{0.75 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+
+%\usepackage{amsmath}
+%\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[tbtags]{amsmath}
+\newtheorem{thm}{Theorem}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{hyperref}
+\usepackage{setspace}
+
+\begin{document}
+\begin{center}
+\begin{spacing}{1.75}
+{\Large { ECE368: Probabilistic Reasoning} \\
+	{Lab 2: Classification with Gaussian Models and Bayesian Linear Regression}}
+\end{spacing}
+\vspace{-1em}
+\end{center}
+%\vspace{-11mm}
+You can complete this lab in a group of two. Please provide the name and student number of both members.
+\begin{center}
+   \framebox{
+      \vbox{\vspace{3mm}
+    \hbox to 6.28in { {\bf Name:
+	\centerline{Student Number:}} }\\[5mm]
+    \hbox to 6.28in { {\bf Name:
+	\centerline{Student Number:}} }
+      \vspace{3mm}}}
+   \end{center}
+   
+{\bf You should hand in:} 1) A scanned \textsf{.pdf} version of this sheet with your answers (file size
+should be under $2$ MB); 2) Two figures for Part 1 Question 1 (c), four figures for Part 2 Question 2 and three figures for Part 2 Question 4
+in the \textsf{.pdf} format; and 3) Two Python files \textsf{ldaqda.py} and \textsf{regression.py} that
+contain your code. All these files should be uploaded to Quercus.
+
+\section{Classification with Gaussian Models}
+\begin{enumerate}
+\item
+\begin{enumerate}
+\item Write down the maximum likelihood estimates of the parameters
+$\boldsymbol \mu_{1}$, $\boldsymbol \mu_{2}$, $\boldsymbol \Sigma$,
+$\boldsymbol \Sigma_1$, and $\boldsymbol \Sigma_2$ as functions of the training
+data $\{\mathbf{x}_n, y_n\}, n=1,2,\ldots,N$. ({\bf $1$ pt})
+\begin{center}
+   \framebox{
+      \vbox{\vspace{24mm}
+    \hbox to 5.5in {}
+      \vspace{30mm}}
+   }
+   \end{center}
+
+\item In the case of LDA, write down the decision boundary as a linear equation of
+$\mathbf{x}$ with parameters $\boldsymbol \mu_{1}$, $\boldsymbol \mu_{2}$, and $\boldsymbol \Sigma$. Note that we assume $\pi=0.5$. ({\bf $0.5$ pt})
+\begin{center}
+   \framebox{
+      \vbox{\vspace{25mm}
+    \hbox to 5.5in {}
+      \vspace{20mm}}
+   }
+   \end{center}
+In the case of QDA, write down the decision boundary as a quadratic equation of
+$\mathbf{x}$ with parameters $\boldsymbol \mu_{1}$, $\boldsymbol \mu_{2}$, $\boldsymbol \Sigma_1$, and $\boldsymbol \Sigma_2$. Note that we assume $\pi=0.5$. ({\bf $0.5$ pt})
+\begin{center}
+   \framebox{
+      \vbox{\vspace{25mm}
+    \hbox to 5.5in {}
+      \vspace{20mm}}
+   }
+   \end{center}
+
+\item Complete function \textsf{discrimAnalysis} in \textsf{ldaqda.py} to
+	visualize LDA and QDA models and the corresponding decision boundaries. Please name the figures as \textsf{lda.pdf}, and \textsf{qda.pdf}. ({\bf $1$ pt})
+
+\end{enumerate}
+\item The misclassification rates are \framebox{\vbox{\vspace{3mm}\hbox to 16mm {}}} for LDA, and \framebox{\vbox{\vspace{3mm}\hbox to 16mm {}}} for QDA. ({\bf $1$ pt})
+\end{enumerate}
+
+
+\section{Bayesian Linear Regression}
+\begin{enumerate}
+\item Express posterior distribution $p(\mathbf{a}|z_1,\ldots,z_{N} ; x_1, \ldots, x_N)$ using $\sigma^2, \beta$, $x_1, z_1, x_2, z_2, \ldots, x_N, z_N$.
+   ({\bf $0.5$ pt})
+
+      \begin{center}
+   \framebox{
+      \vbox{\vspace{25mm}
+    \hbox to 5.5in {}
+      \vspace{10mm}}
+   }
+   \end{center}
+\item Let $\sigma^2=0.1$ and $\beta=1$. Draw four contour plots corresponding to the distributions $p(\mathbf{a})$, $p(\mathbf{a}|z_1;x_1)$, $p(\mathbf{a}|z_1,\ldots, z_{5}; x_1 \ldots x_5)$, and $p(\mathbf{a}| z_1,\ldots,z_{100}; x_1 \ldots x_{100})$. In all contour plots, the x-axis represents $a_0$, and the y-axis represents $a_1$. Please save the figures with names \textbf{prior.pdf, posterior1.pdf, posterior5.pdf, posterior100.pdf}, respectively. ({\bf $1.5$ pt})
+
+\item Suppose that there is a new input $x$, for which we want to predict the corresponding target value $z$. Write down the distribution of the prediction $z$, i.e, $p(z|z_1,\ldots,z_N ; x, x_1, \ldots x_N)$. ({\bf $0.5$ pt})
+     \begin{center}
+   \framebox{
+      \vbox{\vspace{30mm}
+    \hbox to 5.5in {}
+      \vspace{5mm}}
+   }
+   \end{center}
+
+
+\item Let $\sigma^2=0.1$ and $\beta=1$. Given a set of new inputs $\{-4,-3.8,\ldots,3.8,4\}$, plot three figures, whose x-axis is the input and y-axis is the prediction, corresponding to three cases:
+    \begin{enumerate}
+    \item The predictions are based on one training sample, i.e., based on $p(z|z_1;x,x_1,)$.
+    \item The predictions are based on $5$ training samples, i.e., based on $p(z|z_1,\ldots,z_{5};x,x_1,\ldots,x_{5})$.
+    \item The predictions are based on $100$ training samples, i.e., based on  $p(z|z_1,\ldots,z_{100};x,x_1,\ldots,x_{100})$.
+    \end{enumerate}
+
+     The range of each figure is set as $[-4, 4]\times [-4, 4]$. Each figure should contain the following three components: 1) the new inputs and the corresponding predicted targets; 2) a vertical interval at each predicted target, indicating the range within one standard deviation; 3) the training sample(s) that are used for the prediction. Use \textsf{plt.errorbar} for 1) and 2); use \textsf{plt.scatter} for 3). Please save the figures with names \textbf{predict1.pdf, predict5.pdf, predict100.pdf}, respectively. ({\bf $1.5$ pt})
+
+\end{enumerate}
+
+\end{document}
